@@ -1,12 +1,13 @@
 ﻿$(document).ready(() => {
-    var card = new ClozeCard("David", "David Wright");
-    console.log(card.partial);
-
     GenerateBasicCard("What is the captital of Jamaica?", "Kingston");
     GenerateClozeCard("Kingston", "The capital of Jamaica is Kingston");
 
-    //flip basic card event
-    $(".basic-card").click(e => {
+    $(".generate").click(() => {
+        GenerateBasicCard("What is the captital of Jamaica?", "Kingston");
+    });
+
+    //basic card click event
+    $("#cards").on("click", ".basic-card", e => {
         var card = $(e.currentTarget);
         var context = card.children(".context");
         var displayFront = context.data("displayFront");
@@ -19,15 +20,30 @@
             context.data("displayFront", true);
         }
     });
+
+    //cloze card submit event
+    $("#cards").on("click", ".cloze-card .submit", e => {
+        var card = $(e.currentTarget.parentElement);
+        var answer = card.children(".answer").val().toLowerCase();
+        var correctAnswer = card.data("answer").toLowerCase();
+
+        if (answer !== correctAnswer) {
+            alert("Incorrect");
+        } else if (answer === correctAnswer) {
+            alert("Correct");
+        }
+    });
 });
 
 function GenerateClozeCard(cloze, text) {
     var cardInfo = new ClozeCard(cloze, text);
 
-    var card = $("<div>").addClass("card cloze-card");
+    var card = $("<div>")
+        .addClass("card cloze-card")
+        .data("answer", cardInfo.cloze);
 
     var partialText = $("<p>").html(cardInfo.partial);
-    var input = $("<input>").addClass("input");
+    var input = $("<input>").addClass("answer");
     var button = $("<button>")
         .addClass("submit")
         .html("Check");
