@@ -2,9 +2,10 @@
     var card = new ClozeCard("David", "David Wright");
     console.log(card.partial);
 
-    GenerateBasicCard("David", "Wright");
+    GenerateBasicCard("What is the captital of Jamaica?", "Kingston");
+    GenerateClozeCard("Kingston", "The capital of Jamaica is Kingston");
 
-    //flip basic card
+    //flip basic card event
     $(".basic-card").click(e => {
         var card = $(e.currentTarget);
         var context = card.children(".context");
@@ -21,15 +22,26 @@
 });
 
 function GenerateClozeCard(cloze, text) {
-    var card = new ClozeCard(cloze, text);
+    var cardInfo = new ClozeCard(cloze, text);
+
+    var card = $("<div>").addClass("card cloze-card");
+
+    var partialText = $("<p>").html(cardInfo.partial);
+    var input = $("<input>").addClass("input");
+    var button = $("<button>")
+        .addClass("submit")
+        .html("Check");
+
+    card.append(partialText, input, button);
+    $("#cards").append(card);
 }
 
 function GenerateBasicCard(front, back) {
     var cardInfo = new BasicCard(front, back);
 
-    var card = $(`<div>`).addClass("card basic-card");
+    var card = $("<div>").addClass("card basic-card");
 
-    var context = $(`<p>`)
+    var context = $("<p>")
         .addClass("context")
         .data("front", cardInfo.front)
         .data("back", cardInfo.back)
