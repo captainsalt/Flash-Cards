@@ -1,1 +1,10 @@
-﻿
+﻿.cards {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.card {
+    width: 200px;
+}
