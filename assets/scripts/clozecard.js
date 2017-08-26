@@ -3,13 +3,13 @@ function ClozeCard(cloze, fullText) {
         return new ClozeCard(cloze, partial, fullText);
 
     this.cloze = cloze;
-    this.fullText = checkCloze();
+    this.fullText = this.checkCloze(cloze, fullText);
     this.partial = this.fullText.replace(cloze, "...");
-    
-    function checkCloze() {
-        if (fullText.includes(cloze))
-            return fullText;
-        else
-            throw new Error("Full text does not contain close\nNote: Case sensitive!");
-    }    
+}
+
+ClozeCard.prototype.checkCloze = function(cloze, fullText) {
+    if (fullText.includes(cloze))
+        return fullText;
+    else
+        throw new Error("Full text does not contain close\nNote: Case sensitive!");
 }
