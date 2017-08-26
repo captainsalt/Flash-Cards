@@ -10,6 +10,6 @@ function ClozeCard(cloze, fullText) {
         if (fullText.includes(cloze))
             return fullText;
         else
-            throw new Error("Full text does not contain close\nNote: Case is important!");
+            throw new Error("Full text does not contain close\nNote: Case sensitive!");
     }    
 }
