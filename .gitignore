@@ -1,0 +1,6 @@
+﻿jsconfig.json
+typings.json
+typings/
+.vs/
+.vscode/
+**/Thumbs.db
