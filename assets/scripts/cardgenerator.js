@@ -9,7 +9,7 @@ function GenerateClozeCard(cloze, text) {
     var input = $("<input>").addClass("answer");
     var button = $("<button>")
         .addClass("submit")
-        .html("Check");
+        .html("Check Answer");
 
     card.append(partialText, input, button);
     $("#cards").append(card);
