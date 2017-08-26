@@ -5,8 +5,14 @@
     margin: 10px;
 }
 
-.basic-card {
+.card {
     width: 200px;
+    height: 200px;
     text-align: center;
     background: wheat;
+}
+
+.basic-card {
+background: blueviolet;
+padding: 10px;
 }

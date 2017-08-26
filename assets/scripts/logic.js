@@ -13,7 +13,6 @@
         if (displayFront) {
             context.html(context.data("back"));
             context.data("displayFront", false);
-            
         } else if (!displayFront) {
             context.html(context.data("front"));
             context.data("displayFront", true);
@@ -28,7 +27,7 @@ function GenerateClozeCard(cloze, text) {
 function GenerateBasicCard(front, back) {
     var cardInfo = new BasicCard(front, back);
 
-    var card = $(`<div>`).addClass("basic-card");
+    var card = $(`<div>`).addClass("card basic-card");
 
     var context = $(`<p>`)
         .addClass("context")
