@@ -58,6 +58,8 @@ function onSubmitCard(e) {
         GenerateBasicCard(firstArgument, secondArgument);
     else if (mode === "cloze")
         GenerateClozeCard(firstArgument, secondArgument);
+
+    clearText();
 }
 
 function onModeBasic(e) {
@@ -75,5 +77,5 @@ function onModeCloze(e) {
 function clearText() {
     var values = $("#card-input").children("input").get();
     for (let i = 0; i < values.length; i++)
-        var val = $(values[i]).val(null);
+        var val = $(values[i]).val("");
 }
