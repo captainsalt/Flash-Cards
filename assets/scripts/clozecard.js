@@ -7,6 +7,7 @@ function ClozeCard(cloze, fullText) {
     this.partial = this.fullText.replace(cloze, "...");
 }
 
+//Check to see if full text contains the cloze
 ClozeCard.prototype.checkCloze = function(cloze, fullText) {
     if (fullText.includes(cloze))
         return fullText;

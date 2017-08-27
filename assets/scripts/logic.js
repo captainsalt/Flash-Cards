@@ -2,17 +2,17 @@
     //set the mode to basic
     $("#submit-card").data("mode", "basic");
 
-    //basic card click event
+    //Flip the card when you click on it
     $("#cards").on("click", ".basic-card", e => onBasicCardClick(e));
-    //cloze card submit event
+    //Check answer when you submit
     $("#cards").on("click", ".cloze-card .submit", e => onClozeCardSubmit(e));
-    //clicked on create basic button
+    //Initializes setup for a basic card
     $("#create-basic").click(e => onModeBasic(e));
-    //clicked on create cloze button
+    //Inistalizes setup for a cloze card
     $("#create-cloze").click(e => onModeCloze(e));
-    //When you submit a card
+    //Submit a card
     $("#submit-card").click(e => onSubmitCard(e));
-    //When you click the cancel button
+    //Cancel making a card
     $("#cancel").click(e => onTemplateCancel(e));
 });
 
@@ -89,6 +89,7 @@ function clearText() {
         var val = $(values[i]).val("");
 }
 
+//Switches between creation options
 function showCardTemplate(isDisplay) {
     if (isDisplay) {
         $("#card-creation").addClass("hidden");
