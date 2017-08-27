@@ -2,16 +2,18 @@
     //set the mode to basic
     $("#submit-card").data("mode", "basic");
 
-    //basic card click event
+    //Flip the card when you click on it
     $("#cards").on("click", ".basic-card", e => onBasicCardClick(e));
-    //cloze card submit event
+    //Check answer when you submit
     $("#cards").on("click", ".cloze-card .submit", e => onClozeCardSubmit(e));
-    //clicked on create basic button
+    //Initializes setup for a basic card
     $("#create-basic").click(e => onModeBasic(e));
-    //clicked on create cloze button
+    //Inistalizes setup for a cloze card
     $("#create-cloze").click(e => onModeCloze(e));
-    //When you submit a card
+    //Submit a card
     $("#submit-card").click(e => onSubmitCard(e));
+    //Cancel making a card
+    $("#cancel").click(e => onTemplateCancel(e));
 });
 
 function onBasicCardClick(e) {
@@ -60,22 +62,40 @@ function onSubmitCard(e) {
         GenerateClozeCard(firstArgument, secondArgument);
 
     clearText();
+    showCardTemplate(false);
 }
 
 function onModeBasic(e) {
     $("#first-label").html("Front");
     $("#second-label").html("Back");
     $("#submit-card").data("mode", "basic");
+    showCardTemplate(true);
 }
 
 function onModeCloze(e) {
     $("#first-label").html("Cloze");
     $("#second-label").html("Full Text");
     $("#submit-card").data("mode", "cloze");
+    showCardTemplate(true)
+}
+
+function onTemplateCancel() {
+    showCardTemplate(false);
 }
 
 function clearText() {
     var values = $("#card-input").children("input").get();
     for (let i = 0; i < values.length; i++)
         var val = $(values[i]).val("");
+}
+
+//Switches between creation options
+function showCardTemplate(isDisplay) {
+    if (isDisplay) {
+        $("#card-creation").addClass("hidden");
+        $("#card-input").removeClass("hidden");
+    } else {
+        $("#card-creation").removeClass("hidden");
+        $("#card-input").addClass("hidden");
+    }
 }

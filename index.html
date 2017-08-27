@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        <!--Title here-->
+        Flash Cards
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,25 +16,31 @@
 </head>
 
 <body>
+    <!-- Header -->
     <div id="creation-area">
+        <!-- Card creation options -->
         <div id="card-creation">
             <button id="create-basic" class="button">Create basic card</button>
             <button id="create-cloze" class="button">Create cloze card</button>
         </div>
 
-        <div id="card-input" class="">
-            <p id="first-label">Front</p>
-            <input id="first-input">    
-            <p id="second-label">Back</p>
+        <!-- Card creation -->
+        <div id="card-input" class="hidden">
+            <!-- First input -->
+            <p id="first-label"></p>
+            <input id="first-input"> 
+            <!-- Second input    -->
+            <p id="second-label"></p>
             <input id="second-input">
 
+            <!-- Buttons -->
             <button id="submit-card" class="button">Create card</button>
+            <button id="cancel" class="button">Cancel</button>
         </div>
     </div>
 
-    <div id="cards">
-
-    </div>
+    <!-- Card container -->
+    <div id="cards"></div>
 
     <script type="text/javascript" src="assets/scripts/basiccard.js"></script>
     <script type="text/javascript" src="assets/scripts/clozecard.js"></script>
