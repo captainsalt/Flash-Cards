@@ -9,13 +9,32 @@
     width: 200px;
     height: 200px;
     text-align: center;
-    background: wheat;
     margin: 1px;
+    padding: 5px;
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+
+.cloze-card {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    background: #eeeeee;
+}
+
+.cloze-card .partial {
+    align-self: center;
 }
 
 .basic-card {
-    background: blueviolet;
+    display: flex;
+    background: #eeeeee;
     padding: 10px;
+}
+
+.basic-card p {
+    align-self: center;
+    width: 100%;
 }
 
 .create {

@@ -4,11 +4,13 @@ function GenerateClozeCard(cloze, text) {
     var card = $("<div>")
         .addClass("card cloze-card")
         .data("answer", cardInfo.cloze);
-
-    var partialText = $("<p>").html(cardInfo.partial);
+        
     var input = $("<input>").addClass("answer");
+    var partialText = $("<p>")
+        .html(cardInfo.partial)
+        .addClass("partial");
     var button = $("<button>")
-        .addClass("submit")
+        .addClass("submit button")
         .html("Check Answer");
 
     card.append(partialText, input, button);
