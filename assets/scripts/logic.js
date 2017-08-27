@@ -12,6 +12,8 @@
     $("#create-cloze").click(e => onModeCloze(e));
     //When you submit a card
     $("#submit-card").click(e => onSubmitCard(e));
+    //When you click the cancel button
+    $("#cancel").click(e => onTemplateCancel(e));
 });
 
 function onBasicCardClick(e) {
@@ -60,22 +62,39 @@ function onSubmitCard(e) {
         GenerateClozeCard(firstArgument, secondArgument);
 
     clearText();
+    showCardTemplate(false);
 }
 
 function onModeBasic(e) {
     $("#first-label").html("Front");
     $("#second-label").html("Back");
     $("#submit-card").data("mode", "basic");
+    showCardTemplate(true);
 }
 
 function onModeCloze(e) {
     $("#first-label").html("Cloze");
     $("#second-label").html("Full Text");
     $("#submit-card").data("mode", "cloze");
+    showCardTemplate(true)
+}
+
+function onTemplateCancel() {
+    showCardTemplate(false);
 }
 
 function clearText() {
     var values = $("#card-input").children("input").get();
     for (let i = 0; i < values.length; i++)
         var val = $(values[i]).val("");
+}
+
+function showCardTemplate(isDisplay) {
+    if (isDisplay) {
+        $("#card-creation").addClass("hidden");
+        $("#card-input").removeClass("hidden");
+    } else {
+        $("#card-creation").removeClass("hidden");
+        $("#card-input").addClass("hidden");
+    }
 }
