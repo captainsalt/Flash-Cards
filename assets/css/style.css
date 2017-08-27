@@ -1,8 +1,8 @@
-﻿#cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 5px;
+﻿input {
+    border-radius: 5px;
+    border: 1px solid #eeeeee;
+    height: 30px;
+    padding: 0 5px;
 }
 
 .card {
@@ -14,6 +14,56 @@
 }
 
 .basic-card {
-background: blueviolet;
-padding: 10px;
+    background: blueviolet;
+    padding: 10px;
+}
+
+.create {
+    margin: 10px;
+    padding: 10px;
+}
+
+.button {
+    background: #300030;
+    color: #ffffff;
+    border: 1px solid #460046;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+#cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+#card-input {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+
+#card-input * {
+    justify-self: center;
+    width: 70%;
+}
+
+#card-input p {
+    text-align: center;
+    color: white;
+}
+
+#card-creation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#creation-area {
+    border-bottom: 2px solid black;
+    background: purple;
+    padding: 10px;
 }
