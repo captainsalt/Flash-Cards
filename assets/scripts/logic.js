@@ -53,10 +53,15 @@ function onSubmitCard(e) {
     var firstArgument = $(values[0]).val();
     var secondArgument = $(values[1]).val();
 
-    if (mode === "basic")
-        GenerateBasicCard(firstArgument, secondArgument);
-    else if (mode === "cloze")
-        GenerateClozeCard(firstArgument, secondArgument);
+    //catches errors with creating cards
+    try {
+        if (mode === "basic")
+            GenerateBasicCard(firstArgument, secondArgument);
+        else if (mode === "cloze")
+            GenerateClozeCard(firstArgument, secondArgument);
+    } catch (error) {
+        return alert(error);
+    }
 
     clearText();
     showCardTemplate(false);
