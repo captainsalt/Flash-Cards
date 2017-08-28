@@ -1,7 +1,4 @@
 ﻿$(document).ready(() => {
-    //set the mode to basic
-    $("#submit-card").data("mode", "basic");
-
     //Flip the card when you click on it
     $("#cards").on("click", ".basic-card", e => onBasicCardClick(e));
     //Check answer when you submit
